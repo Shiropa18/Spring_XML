@@ -61,4 +61,52 @@ public class HappyFotuneService implements FotuneService {
 		return  all;
 	}
 
+	@Override
+	public String getNewFotune() {
+
+		String a = "";
+
+		ArrayList<String> b = new ArrayList<String>();
+
+		String fileName = "F:\\Spring Project Eclipse\\Git\\Spring_XML\\PracticeActivityAnnotation\\src\\com\\luv2code\\springdemo\\text.txt";
+
+		String line = null;
+
+		int linenumber = 0;
+
+		try {
+
+			FileReader fileReader = new FileReader(fileName);
+
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+			while ((line = bufferedReader.readLine()) != null) {
+
+				a += line + "\n";
+				
+				b.add(linenumber, line);
+				
+				linenumber++;
+
+			}
+			
+			bufferedReader.close();
+
+		} catch (FileNotFoundException ex) {
+			System.out.println("Unable to open file '" + fileName + "'");
+		} catch (IOException ex) {
+			System.out.println("Error reading file '" + fileName + "'");
+		}
+		
+		
+		Random random = new Random();
+		
+		int rand = random.nextInt(linenumber);
+		
+		String item = b.get(rand);
+		
+
+		return  item;
+	}
+
 }
