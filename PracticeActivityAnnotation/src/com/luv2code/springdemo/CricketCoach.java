@@ -3,15 +3,18 @@ package com.luv2code.springdemo;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class CricketCoach implements Coach {
 	
+	
 	private FotuneService fortuneService;
 	
-	@Autowired
-	public CricketCoach(FotuneService theFortuneservice) {
+	
+	@Autowired	
+	public CricketCoach(@Qualifier("happyFotuneService")FotuneService theFortuneservice) {
 		this.fortuneService = theFortuneservice;
 	}
 

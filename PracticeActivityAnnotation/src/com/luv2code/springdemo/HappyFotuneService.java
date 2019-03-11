@@ -64,8 +64,6 @@ public class HappyFotuneService implements FotuneService {
 	@Override
 	public String getNewFotune() {
 
-		String a = "";
-
 		ArrayList<String> b = new ArrayList<String>();
 
 		String fileName = "F:\\Spring Project Eclipse\\Git\\Spring_XML\\PracticeActivityAnnotation\\src\\com\\luv2code\\springdemo\\text.txt";
@@ -82,8 +80,6 @@ public class HappyFotuneService implements FotuneService {
 
 			while ((line = bufferedReader.readLine()) != null) {
 
-				a += line + "\n";
-				
 				b.add(linenumber, line);
 				
 				linenumber++;
